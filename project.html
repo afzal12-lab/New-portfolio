@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Details</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 40px;
+      background: #f9f9f9;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #00adb5;
+    }
+    a {
+      display: inline-block;
+      margin-top: 20px;
+      text-decoration: none;
+      color: #fff;
+      background: #00adb5;
+      padding: 10px 20px;
+      border-radius: 5px;
+    }
+    a:hover {
+      background: #007a7a;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 id="project-title">Project Title</h1>
+    <p id="project-description">Loading project details...</p>
+    <a href="index.html">⬅ Back to Portfolio</a>
+  </div>
+
+  <script>
+    const projects = {
+      1: {
+        title: "Portfolio Website",
+        description: "A personal portfolio built with HTML, CSS, and JavaScript. Fully responsive and includes animations."
+      },
+      2: {
+        title: "E-commerce Clone",
+        description: "An online shopping store clone built using HTML, CSS, JS with product filters, cart system, and responsive layout."
+      },
+      3: {
+        title: "Blog Website",
+        description: "A blogging platform with article pages, categories, and a comment section."
+      }
+    };
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+    if (projects[id]) {
+      document.getElementById("project-title").textContent = projects[id].title;
+      document.getElementById("project-description").textContent = projects[id].description;
+    } else {
+      document.getElementById("project-title").textContent = "Project Not Found";
+      document.getElementById("project-description").textContent = "Invalid project ID.";
+    }
+  </script>
+</body>
+</html>
